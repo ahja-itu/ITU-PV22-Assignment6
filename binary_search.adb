@@ -30,8 +30,8 @@ is
          --   det indre område mellem Left og Right kan ikke være af værdien I
          pragma Loop_Invariant (Left <= Right and 
             (for all J in A'First..Left-1 => A (J) /= I) and 
-            (for all J in Right+1..A'Last => A (J) /= I)); -- COMPLETE THIS
-         pragma Loop_Variant (Decreases => Right - Left); -- COMPLETE THIS
+            (for all J in Right+1..A'Last => A (J) /= I));
+         pragma Loop_Variant (Decreases => Right - Left);
 
          Med := Left + (Right - Left) / 2;
 
