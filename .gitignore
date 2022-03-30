@@ -5,6 +5,8 @@
 ### Ada ###
 # Object file
 *.o
+obj/
+*.sh
 
 # Ada Library Information
 *.ali

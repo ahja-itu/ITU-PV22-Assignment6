@@ -12,7 +12,11 @@ begin
          Pos := J;
          return;
       end if;
-      pragma Loop_Invariant (True); -- COMPLETE THIS
+      -- Denne her loop invariant bliver checket når vi er i loopet.
+      -- Vi ser på alle væriderne fra det første index og op til J, og
+      -- kan bestemme at loopet ikke er stoppet fordi at vi ikke har nået
+      -- guarden fra if-statement'et om at A (J) = 0.
+      pragma Loop_Invariant (for all I in A'First..J => A(I) /= 0); -- COMPLETED
    end loop;
 
    Success := False;

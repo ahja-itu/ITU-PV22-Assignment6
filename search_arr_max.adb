@@ -15,6 +15,6 @@ begin
          Max := A(J);
          Pos := J;
       end if;
-      pragma Loop_Invariant (True);  -- COMPLETE THIS
+      pragma Loop_Invariant ((for all I in A'First..J => A (I) <= Max) and A (Pos) = Max);  -- COMPLETE THIS
    end loop;
 end Search_Arr_Max;

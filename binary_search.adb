@@ -22,8 +22,16 @@ is
       end if;
 
       while Left <= Right loop
-         pragma Loop_Invariant (True); -- COMPLETE THIS
-         pragma Loop_Variant (Decreases => Natural(0)); -- COMPLETE THIS
+         -- Forklaring:
+         -- Loop Invariant: 
+         --   Hvad vi ved om en binær søgning er guard'en for while loopet
+         --   garanterer at det venstre index er mindre eller lig med det højre.
+         --   Derudover kan vi sige at alle elementer som ligger "uden for"
+         --   det indre område mellem Left og Right kan ikke være af værdien I
+         pragma Loop_Invariant (Left <= Right and 
+            (for all J in A'First..Left-1 => A (J) /= I) and 
+            (for all J in Right+1..A'Last => A (J) /= I)); -- COMPLETE THIS
+         pragma Loop_Variant (Decreases => Right - Left); -- COMPLETE THIS
 
          Med := Left + (Right - Left) / 2;
 

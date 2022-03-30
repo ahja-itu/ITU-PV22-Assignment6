@@ -1,7 +1,7 @@
 procedure Swap (X, Y : in out Integer) with
   SPARK_Mode,
   Depends => (X => Y, Y => X),
-  Post    => True -- COMPLETE THIS
+  Post    => (X = Y'Old and then Y = X'Old)
 is
    Tmp : constant Integer := X;
 begin
