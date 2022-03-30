@@ -1,0 +1,9 @@
+project Proj is
+
+   for Object_dir use "obj";
+
+   package Prove is
+      for Switches use ("-f","--report=statistics");
+   end Prove;
+
+end Proj;
